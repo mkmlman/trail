@@ -336,9 +336,9 @@ body {
 }
 
 .sr-tab.active {
-  color: var(--sr-text);
-  background: var(--sr-bg-card);
-  border-color: var(--sr-border);
+  color: var(--sr-accent);
+  background: var(--sr-accent-subtle);
+  border-color: var(--sr-accent);
 }
 
 /* ─── Reduced motion ─── */
