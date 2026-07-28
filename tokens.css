@@ -1,0 +1,85 @@
+:root {
+  /* ─── Backgrounds ─── */
+  --sr-bg: #18181b;
+  --sr-bg-raised: rgba(255, 255, 255, 0.025);
+  --sr-bg-hover: rgba(255, 255, 255, 0.06);
+  --sr-bg-card: rgba(255, 255, 255, 0.035);
+  --sr-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ─── Text ─── */
+  --sr-text: #f5f5f5;
+  --sr-text-soft: rgba(228, 228, 231, 0.85);
+  --sr-text-muted: rgba(161, 161, 170, 0.75);
+  --sr-text-faint: #52525b;
+
+  /* ─── Borders ─── */
+  --sr-border-subtle: rgba(255, 255, 255, 0.06);
+  --sr-border-light: rgba(255, 255, 255, 0.08);
+  --sr-border: rgba(255, 255, 255, 0.10);
+  --sr-border-strong: rgba(255, 255, 255, 0.15);
+  --sr-border-accent: #7c3aed;
+
+  /* ─── Accent ─── */
+  --sr-accent: #7c3aed;
+  --sr-accent-hover: #8b5cf6;
+  --sr-accent-subtle: rgba(124, 58, 237, 0.12);
+
+  /* ─── Semantic ─── */
+  --sr-green: #22c55e;
+  --sr-green-bg: rgba(34, 197, 94, 0.10);
+  --sr-red: #ef4444;
+  --sr-red-bg: rgba(239, 68, 68, 0.10);
+  --sr-amber: #eab308;
+  --sr-amber-bg: rgba(234, 179, 8, 0.10);
+
+  /* ─── Typography ─── */
+  --sr-font-serif: "Georgia", "Times New Roman", serif;
+  --sr-font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sr-font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", monospace;
+
+  /* ─── Font sizes ─── */
+  --sr-text-xs: 0.75rem;
+  --sr-text-sm: 0.875rem;
+  --sr-text-base: 1rem;
+  --sr-text-lg: 1.125rem;
+  --sr-text-xl: 1.25rem;
+  --sr-text-2xl: 1.5rem;
+  --sr-text-3xl: 1.875rem;
+  --sr-text-4xl: 2.25rem;
+  --sr-text-5xl: 3rem;
+  --sr-text-6xl: 3.75rem;
+
+  /* ─── Spacing (4px base) ─── */
+  --sr-space-1: 0.25rem;
+  --sr-space-2: 0.5rem;
+  --sr-space-3: 0.75rem;
+  --sr-space-4: 1rem;
+  --sr-space-5: 1.25rem;
+  --sr-space-6: 1.5rem;
+  --sr-space-7: 1.75rem;
+  --sr-space-8: 2rem;
+  --sr-space-9: 2.25rem;
+  --sr-space-10: 2.5rem;
+  --sr-space-12: 3rem;
+  --sr-space-14: 3.5rem;
+  --sr-space-16: 4rem;
+  --sr-space-20: 5rem;
+
+  /* ─── Radii ─── */
+  --sr-radius-sm: 4px;
+  --sr-radius-md: 8px;
+  --sr-radius-lg: 18px;
+  --sr-radius-xl: 22px;
+  --sr-radius-full: 9999px;
+
+  /* ─── Shadows ─── */
+  --sr-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --sr-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --sr-shadow-lg: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+
+  /* ─── Letter-spacing ─── */
+  --sr-tracking-tight: -0.035em;
+  --sr-tracking-wide: 0.06em;
+  --sr-tracking-wider: 0.18em;
+  --sr-tracking-widest: 0.2em;
+}

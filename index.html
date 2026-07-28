@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>trail</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  body { padding: 0 0 var(--sr-space-20); }
+  .ds-header {
+    border-bottom: 1px solid var(--sr-border-subtle);
+    padding: var(--sr-space-6) 0;
+    margin-bottom: var(--sr-space-8);
+  }
+  .ds-hero {
+    padding: var(--sr-space-16) 0 var(--sr-space-16);
+    text-align: center;
+    border-bottom: 1px solid var(--sr-border-subtle);
+    margin-bottom: var(--sr-space-16);
+  }
+  .ds-hero svg { max-width: 560px; width: 100%; height: auto; margin-bottom: var(--sr-space-10); }
+  .ds-hero p { max-width: 640px; margin: var(--sr-space-6) auto 0; }
+  .ds-section { margin-bottom: var(--sr-space-16); }
+  .ds-section-header { margin-bottom: var(--sr-space-10); }
+  .ds-section-header h2 { font-size: var(--sr-text-4xl); }
+  .ds-section-header p {
+    font-family: var(--sr-font-mono);
+    font-size: var(--sr-text-sm);
+    color: var(--sr-text-muted);
+    margin-top: var(--sr-space-3);
+  }
+  .ds-token-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--sr-space-4);
+  }
+  .ds-swatch {
+    background: var(--sr-bg-card);
+    border: 1px solid var(--sr-border);
+    border-radius: var(--sr-radius-lg);
+    padding: var(--sr-space-4);
+  }
+  .ds-swatch-color {
+    height: 48px;
+    border-radius: var(--sr-radius-md);
+    margin-bottom: var(--sr-space-3);
+    border: 1px solid var(--sr-border);
+  }
+  .ds-swatch-label {
+    font-family: var(--sr-font-mono);
+    font-size: var(--sr-text-xs);
+    color: var(--sr-text-soft);
+  }
+  .ds-swatch-value {
+    font-family: var(--sr-font-mono);
+    font-size: 11px;
+    color: var(--sr-text-muted);
+    margin-top: var(--sr-space-1);
+  }
+  .ds-type-sample {
+    padding: var(--sr-space-6);
+    background: var(--sr-bg-card);
+    border: 1px solid var(--sr-border);
+    border-radius: var(--sr-radius-lg);
+    margin-bottom: var(--sr-space-4);
+  }
+  .ds-type-sample .sr-body,
+  .ds-type-sample .sr-body-sm { margin-top: var(--sr-space-3); }
+  .ds-type-sample .sr-mono { margin-top: var(--sr-space-3); }
+  .ds-component-row {
+    display: flex;
+    gap: var(--sr-space-4);
+    flex-wrap: wrap;
+    align-items: center;
+    padding: var(--sr-space-6);
+    background: var(--sr-bg-card);
+    border: 1px solid var(--sr-border);
+    border-radius: var(--sr-radius-lg);
+    margin-bottom: var(--sr-space-4);
+  }
+  .ds-component-row-label {
+    font-family: var(--sr-font-mono);
+    font-size: var(--sr-text-xs);
+    color: var(--sr-text-muted);
+    width: 100%;
+    margin-bottom: var(--sr-space-2);
+  }
+  .ds-code {
+    font-family: var(--sr-font-mono);
+    font-size: var(--sr-text-xs);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--sr-border-subtle);
+    border-radius: var(--sr-radius-sm);
+    padding: var(--sr-space-1) var(--sr-space-2);
+    color: var(--sr-accent);
+  }
+  .ds-layout-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sr-space-6);
+  }
+  @media (max-width: 700px) {
+    .ds-layout-demo { grid-template-columns: 1fr; }
+    .ds-hero { padding: var(--sr-space-10) 0; }
+  }
+  .ds-svg-demo {
+    background: var(--sr-bg-card);
+    border: 1px solid var(--sr-border);
+    border-radius: var(--sr-radius-lg);
+    padding: var(--sr-space-8);
+    display: flex;
+    justify-content: center;
+  }
+  .ds-svg-demo svg { max-width: 420px; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+<div class="sr-container">
+
+  <!-- HEADER -->
+  <header class="ds-header sr-header">
+    <a href="/" class="sr-logo" style="display:flex;align-items:center;gap:var(--sr-space-2)"><svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="var(--sr-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 56c8-24 16-8 24-20s16-28 24-12"/><circle cx="56" cy="24" r="3" fill="var(--sr-accent)" stroke="none"/><circle cx="32" cy="36" r="2.5" fill="var(--sr-accent)" stroke="none" opacity="0.6"/><circle cx="16" cy="44" r="2" fill="var(--sr-accent)" stroke="none" opacity="0.4"/></svg> trail</a>
+    <nav class="sr-nav" style="display:flex;gap:var(--sr-space-6);font-size:var(--sr-text-sm)">
+      <a href="#tokens" class="sr-nav-link" style="display:flex;align-items:center;gap:var(--sr-space-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Tokens</a>
+      <a href="#typography" class="sr-nav-link" style="display:flex;align-items:center;gap:var(--sr-space-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>Typography</a>
+      <a href="#components" class="sr-nav-link" style="display:flex;align-items:center;gap:var(--sr-space-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>Components</a>
+      <a href="#usage" class="sr-nav-link" style="display:flex;align-items:center;gap:var(--sr-space-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Usage</a>
+      <a href="https://github.com/mkmlman/trail" class="sr-nav-link" style="display:flex;align-items:center"><svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="ds-hero">
+    <svg viewBox="0 0 560 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mountains -->
+      <path d="M0 180 L60 80 L120 140 L180 60 L240 130 L300 90 L360 140 L420 70 L480 120 L540 100 L560 110 L560 200 L0 200Z" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="rgba(255,255,255,0.015)" />
+      <path d="M0 200 L40 120 L100 160 L160 100 L220 150 L280 110 L340 155 L400 90 L460 140 L520 115 L560 130 L560 200Z" stroke="rgba(255,255,255,0.04)" stroke-width="1.2" fill="rgba(255,255,255,0.008)" />
+
+      <!-- Sun -->
+      <circle cx="420" cy="55" r="18" stroke="rgba(124,58,237,0.15)" stroke-width="1.5" />
+      <circle cx="420" cy="55" r="12" stroke="rgba(124,58,237,0.1)" stroke-width="1.5" />
+      <circle cx="420" cy="55" r="6" fill="rgba(124,58,237,0.08)" stroke="none" />
+
+      <!-- Trees -->
+      <path d="M80 140 l6 -18 l-6 0 l6 -15 l-6 0 l6 -12 l6 12 l-6 0 l6 15 l-6 0 l6 18Z" stroke="rgba(255,255,255,0.1)" stroke-width="1.2" fill="rgba(255,255,255,0.02)" />
+      <path d="M340 130 l5 -15 l-5 0 l5 -12 l-5 0 l5 -10 l5 10 l-5 0 l5 12 l-5 0 l5 15Z" stroke="rgba(255,255,255,0.1)" stroke-width="1.2" fill="rgba(255,255,255,0.02)" />
+      <path d="M370 135 l4 -12 l-4 0 l4 -10 l-4 0 l4 -8 l4 8 l-4 0 l4 10 l-4 0 l4 12Z" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="rgba(255,255,255,0.015)" />
+
+      <!-- Trail winding from mountains to foreground -->
+      <path d="M220 130 C235 125 245 140 260 135 C275 130 280 150 295 145 C310 140 315 160 330 155 C345 150 350 170 365 168" stroke="var(--sr-accent)" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M220 130 C220 130 215 128 210 130" stroke="var(--sr-accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+
+      <!-- Trail dots / markers -->
+      <circle cx="238" cy="129" r="2.5" fill="var(--sr-accent)" opacity="0.5" />
+      <circle cx="267" cy="136" r="2.5" fill="var(--sr-accent)" opacity="0.5" />
+      <circle cx="302" cy="146" r="2.5" fill="var(--sr-accent)" opacity="0.5" />
+      <circle cx="348" cy="160" r="2.5" fill="var(--sr-accent)" opacity="0.5" />
+      <circle cx="365" cy="168" r="3" fill="var(--sr-accent)" />
+
+      <!-- Ground line -->
+      <line x1="0" y1="200" x2="560" y2="200" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    </svg>
+
+    <h1 class="sr-h1 sr-heading">trail<br>Design System</h1>
+    <p class="sr-body" style="font-size:var(--sr-text-lg)">
+      A dark, minimal design system with a zinc-based palette, serif-led hierarchy, and monospace data — built for data-dense interfaces.
+    </p>
+  </section>
+
+  <!-- TOKENS -->
+  <section id="tokens" class="ds-section">
+    <div class="ds-section-header">
+      <h2 class="sr-heading sr-h3">Design Tokens</h2>
+      <p>CSS custom properties that drive every component.</p>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Colors</h3>
+    <div class="ds-token-grid" style="margin-bottom:var(--sr-space-10)">
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:#18181b"></div>
+        <div class="ds-swatch-label">--sr-bg</div>
+        <div class="ds-swatch-value">#18181b</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:rgba(255,255,255,0.025);border-color:rgba(255,255,255,0.1)"></div>
+        <div class="ds-swatch-label">--sr-bg-raised</div>
+        <div class="ds-swatch-value">rgba(255,255,255,0.025)</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:rgba(255,255,255,0.035);border-color:rgba(255,255,255,0.1)"></div>
+        <div class="ds-swatch-label">--sr-bg-card</div>
+        <div class="ds-swatch-value">rgba(255,255,255,0.035)</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:#f5f5f5"></div>
+        <div class="ds-swatch-label">--sr-text</div>
+        <div class="ds-swatch-value">#f5f5f5</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:rgba(228,228,231,0.85)"></div>
+        <div class="ds-swatch-label">--sr-text-soft</div>
+        <div class="ds-swatch-value">rgba(228,228,231,0.85)</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:rgba(161,161,170,0.75)"></div>
+        <div class="ds-swatch-label">--sr-text-muted</div>
+        <div class="ds-swatch-value">rgba(161,161,170,0.75)</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:#52525b"></div>
+        <div class="ds-swatch-label">--sr-text-faint</div>
+        <div class="ds-swatch-value">#52525b</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:#7c3aed"></div>
+        <div class="ds-swatch-label">--sr-accent</div>
+        <div class="ds-swatch-value">#7c3aed</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:rgba(255,255,255,0.1)"></div>
+        <div class="ds-swatch-label">--sr-border</div>
+        <div class="ds-swatch-value">rgba(255,255,255,0.10)</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background:rgba(255,255,255,0.06)"></div>
+        <div class="ds-swatch-label">--sr-border-subtle</div>
+        <div class="ds-swatch-value">rgba(255,255,255,0.06)</div>
+      </div>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Spacing Scale</h3>
+    <div class="ds-token-grid" style="margin-bottom:var(--sr-space-10)">
+      <div class="ds-swatch">
+        <div style="height:4px;background:var(--sr-border);border-radius:2px;margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-space-1</div>
+        <div class="ds-swatch-value">0.25rem (4px)</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="height:8px;background:var(--sr-border);border-radius:2px;margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-space-2</div>
+        <div class="ds-swatch-value">0.5rem (8px)</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="height:16px;background:var(--sr-border);border-radius:2px;margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-space-4</div>
+        <div class="ds-swatch-value">1rem (16px)</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="height:24px;background:var(--sr-border);border-radius:2px;margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-space-6</div>
+        <div class="ds-swatch-value">1.5rem (24px)</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="height:32px;background:var(--sr-border);border-radius:2px;margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-space-8</div>
+        <div class="ds-swatch-value">2rem (32px)</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="height:48px;background:var(--sr-border);border-radius:2px;margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-space-12</div>
+        <div class="ds-swatch-value">3rem (48px)</div>
+      </div>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Radii &amp; Borders</h3>
+    <div class="ds-token-grid">
+      <div class="ds-swatch">
+        <div style="width:48px;height:48px;border:1px solid var(--sr-border);border-radius:var(--sr-radius-sm);margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-radius-sm</div>
+        <div class="ds-swatch-value">4px</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="width:48px;height:48px;border:1px solid var(--sr-border);border-radius:var(--sr-radius-md);margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-radius-md</div>
+        <div class="ds-swatch-value">8px</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="width:48px;height:48px;border:1px solid var(--sr-border);border-radius:var(--sr-radius-lg);margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-radius-lg</div>
+        <div class="ds-swatch-value">18px</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="width:48px;height:48px;border:1px solid var(--sr-border);border-radius:var(--sr-radius-xl);margin-bottom:var(--sr-space-3)"></div>
+        <div class="ds-swatch-label">--sr-radius-xl</div>
+        <div class="ds-swatch-value">22px</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section id="typography" class="ds-section">
+    <div class="ds-section-header">
+      <h2 class="sr-heading sr-h3">Typography</h2>
+      <p>Serif for hierarchy, sans-serif for body, monospace for data.</p>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-heading sr-h1" style="font-size:var(--sr-text-6xl)">Heading XL</div>
+      <div class="ds-code">.sr-heading.sr-h1</div>
+      <div class="sr-body" style="margin-top:var(--sr-space-3)">Font: Georgia/Serif · 800 weight · -0.035em tracking</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-heading sr-h2">Heading L</div>
+      <div class="ds-code">.sr-heading.sr-h2</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-heading sr-h3">Heading M</div>
+      <div class="ds-code">.sr-heading.sr-h3</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-heading sr-h4">Heading S</div>
+      <div class="ds-code">.sr-heading.sr-h4</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-body" style="font-size:var(--sr-text-lg)">
+        Body text sits in system sans-serif at 1.125rem/1.7. Designed for reading density with generous line height.
+        The color is --sr-text-soft for comfortable long-form readability against the dark background.
+      </div>
+      <div class="ds-code">.sr-body</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-body-sm">
+        Small body text at 0.875rem/1.6 in --sr-text-muted. Used for secondary information, descriptions, and metadata where hierarchy matters.
+      </div>
+      <div class="ds-code">.sr-body-sm</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-mono" style="font-size:var(--sr-text-sm);color:var(--sr-text-soft)">monospace — USD $1,299.00 — 94% confidence</div>
+      <div class="ds-code">.sr-mono</div>
+      <div class="sr-body-sm" style="margin-top:var(--sr-space-3)">Used for all data, prices, labels, and code. Monospace ensures alignment in data-dense layouts.</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-label">LABEL TEXT — 0.58rem uppercase</div>
+      <div class="ds-code">.sr-label</div>
+      <div class="sr-body-sm" style="margin-top:var(--sr-space-3)">Section labels, table headers, metadata. Tiny monospace uppercase with wide tracking.</div>
+    </div>
+
+    <div class="ds-type-sample">
+      <div class="sr-price">~$69,420</div>
+      <div class="ds-code">.sr-price</div>
+      <div class="sr-body-sm" style="margin-top:var(--sr-space-3)">Hero prices and key metrics. Monospace, 1.875rem, tight tracking.</div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section id="components" class="ds-section">
+    <div class="ds-section-header">
+      <h2 class="sr-heading sr-h3">Components</h2>
+      <p>Reusable UI patterns and components.</p>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Card</h3>
+    <div class="ds-layout-demo" style="margin-bottom:var(--sr-space-10)">
+      <div>
+        <div class="sr-card">
+          <p class="sr-body-sm">Default card with <span class="ds-code">.sr-card</span> — 1px border, rounded-lg, translucent background.</p>
+        </div>
+      </div>
+      <div>
+        <div class="sr-card sr-card-xl">
+          <p class="sr-body-sm">Extra padding with <span class="ds-code">.sr-card-xl</span> — p-9 instead of p-7.</p>
+          <p class="sr-body-sm" style="margin-top:var(--sr-space-3)">Use for featured content or hero stats.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Stats Bar</h3>
+    <div class="sr-stats" style="margin-bottom:var(--sr-space-10)">
+      <div class="sr-stat">
+        <div class="sr-stat-label">Total documents</div>
+        <div class="sr-stat-value">147</div>
+      </div>
+      <div class="sr-stat">
+        <div class="sr-stat-label">Total amount</div>
+        <div class="sr-stat-value" style="font-size:var(--sr-text-3xl)">₹84,203</div>
+      </div>
+      <div class="sr-stat">
+        <div class="sr-stat-label">Avg. confidence</div>
+        <div class="sr-stat-value">94%</div>
+      </div>
+      <div class="sr-stat">
+        <div class="sr-stat-label">Needs review</div>
+        <div class="sr-stat-value" style="color:var(--sr-red)">3</div>
+      </div>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">List (Content)</h3>
+    <div class="sr-card" style="margin-bottom:var(--sr-space-10)">
+      <ul class="sr-list">
+        <li class="sr-list-item">
+          <div style="display:flex;gap:var(--sr-space-4)">
+            <span class="sr-list-number">01</span>
+            <div class="sr-list-content">
+              <div class="sr-list-vendor">Gray-Nicolls</div>
+              <div class="sr-list-title">Kaboom Bat</div>
+              <div class="sr-list-desc">Grade 1 English willow, 2lb 10oz</div>
+            </div>
+          </div>
+          <div class="sr-list-price">USD $349.99</div>
+        </li>
+        <li class="sr-list-item">
+          <div style="display:flex;gap:var(--sr-space-4)">
+            <span class="sr-list-number">02</span>
+            <div class="sr-list-content">
+              <div class="sr-list-vendor">Dukes</div>
+              <div class="sr-list-title">County Cricket Ball</div>
+              <div class="sr-list-desc">Hand-stitched, 156g, box of 6</div>
+            </div>
+          </div>
+          <div class="sr-list-price">USD $89.50</div>
+        </li>
+        <li class="sr-list-item">
+          <div style="display:flex;gap:var(--sr-space-4)">
+            <span class="sr-list-number">03</span>
+            <div class="sr-list-content">
+              <div class="sr-list-vendor">Kookaburra</div>
+              <div class="sr-list-title">Pro Pad Set</div>
+              <div class="sr-list-desc">SEN 4, cane and foam construction</div>
+            </div>
+          </div>
+          <div class="sr-list-price">USD $1,468.99</div>
+        </li>
+      </ul>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sr-space-6);margin-bottom:var(--sr-space-10)">
+      <div>
+        <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Buttons</h3>
+        <div class="ds-component-row">
+          <div class="ds-component-row-label">Default</div>
+          <button class="sr-btn">Cancel</button>
+          <button class="sr-btn sr-btn-accent">Save</button>
+        </div>
+        <div class="ds-component-row">
+          <div class="ds-component-row-label">As links</div>
+          <a href="#" class="sr-link">Inline link</a>
+          <a href="#" class="sr-link-external">External link ↗</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Pills &amp; Labels</h3>
+        <div class="ds-component-row">
+          <div class="ds-component-row-label">Status pill</div>
+          <span class="sr-pill"><span style="width:6px;height:6px;border-radius:50%;background:var(--sr-green);display:inline-block"></span> Watching</span>
+          <span class="sr-pill" style="background:var(--sr-red-bg);color:var(--sr-red);border-color:rgba(239,68,68,0.2)">3 failed</span>
+        </div>
+        <div class="ds-component-row">
+          <div class="ds-component-row-label">Tab</div>
+          <div class="sr-tabs">
+            <span class="sr-tab">Sports</span>
+            <span class="sr-tab active">Shared</span>
+            <span class="sr-tab">Flight</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sr-h4 sr-heading" style="margin-bottom:var(--sr-space-5);font-size:var(--sr-text-xl)">Inline SVG (Pipeline Diagram)</h3>
+    <div class="ds-svg-demo">
+      <svg viewBox="0 0 420 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+          <rect x="18" y="18" width="56" height="40" rx="4" opacity="0.8"/>
+          <rect x="14" y="22" width="56" height="40" rx="4" opacity="0.5"/>
+          <rect x="10" y="26" width="56" height="40" rx="4" opacity="0.25"/>
+          <rect x="22" y="30" width="8" height="4" rx="1" opacity="0.6"/>
+          <rect x="22" y="38" width="28" height="4" rx="1" opacity="0.6"/>
+          <rect x="22" y="46" width="16" height="4" rx="1" opacity="0.6"/>
+          <path d="M78 38L112 38" stroke-width="1.6"/>
+          <path d="M106 32L112 38L106 44" stroke-width="1.6"/>
+          <rect x="116" y="16" width="62" height="44" rx="6" opacity="0.8"/>
+          <rect x="124" y="24" width="46" height="28" rx="3" opacity="0.35"/>
+          <path d="M130 32h34M130 38h34M130 44h20" opacity="0.55"/>
+          <circle cx="143" cy="16" r="5" opacity="0.35"/>
+          <path d="M182 38L216 38" stroke-width="1.6"/>
+          <path d="M210 32L216 38L210 44" stroke-width="1.6"/>
+          <rect x="220" y="14" width="58" height="48" rx="6" opacity="0.8"/>
+          <circle cx="249" cy="32" r="10" opacity="0.4"/>
+          <circle cx="249" cy="32" r="4" opacity="0.55"/>
+          <circle cx="237" cy="44" r="3" opacity="0.3"/>
+          <circle cx="261" cy="44" r="3" opacity="0.3"/>
+          <path d="M237 44l8-8M249 32l8 8M261 44l-8-8" opacity="0.25"/>
+          <path d="M282 38L316 38" stroke-width="1.6"/>
+          <path d="M310 32L316 38L310 44" stroke-width="1.6"/>
+          <rect x="320" y="16" width="70" height="44" rx="4" opacity="0.8"/>
+          <rect x="332" y="24" width="46" height="4" rx="1" opacity="0.5"/>
+          <rect x="332" y="32" width="46" height="4" rx="1" opacity="0.7"/>
+          <rect x="332" y="40" width="24" height="4" rx="1" opacity="0.6"/>
+          <path d="M330 38h44" stroke-width="0.8" opacity="0.25"/>
+          <path d="M336 28v24M348 28v24M360 28v24M372 28v24" stroke-width="0.8" opacity="0.2"/>
+        </g>
+        <g fill="currentColor" opacity="0.4" font-family="ui-monospace,monospace" font-size="8.5" letter-spacing="0.08em">
+          <text x="22" y="76">Documents</text>
+          <text x="140" y="76">OCR</text>
+          <text x="243" y="76">LLM</text>
+          <text x="348" y="76">Ledger</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section id="usage" class="ds-section">
+    <div class="ds-section-header">
+      <h2 class="sr-heading sr-h3">Usage</h2>
+      <p>Add two files to your project.</p>
+    </div>
+
+    <div class="sr-card" style="margin-bottom:var(--sr-space-6)">
+      <pre style="font-family:var(--sr-font-mono);font-size:var(--sr-text-sm);color:var(--sr-text-soft);line-height:1.8;overflow-x:auto"><code>&lt;link rel="stylesheet" href="tokens.css"&gt;
+&lt;link rel="stylesheet" href="components.css"&gt;</code></pre>
+    </div>
+
+    <div class="sr-card" style="margin-bottom:var(--sr-space-6)">
+      <p class="sr-body-sm" style="margin-bottom:var(--sr-space-3)">Or import into your CSS:</p>
+      <pre style="font-family:var(--sr-font-mono);font-size:var(--sr-text-sm);color:var(--sr-text-soft);line-height:1.8;overflow-x:auto"><code>@import url("tokens.css");
+@import url("components.css");</code></pre>
+    </div>
+
+    <div class="sr-card">
+      <p class="sr-body-sm">Then use the component classes in your HTML. All tokens are available as CSS custom properties on <span class="ds-code">:root</span> — override any value to customize the theme.</p>
+      <pre style="font-family:var(--sr-font-mono);font-size:var(--sr-text-sm);color:var(--sr-text-soft);line-height:1.8;margin-top:var(--sr-space-4);overflow-x:auto"><code>:root {
+  --sr-accent: #0891b2;   /* cyan accent instead of violet */
+  --sr-radius-lg: 12px;   /* tighter corners */
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:var(--sr-space-8) 0;border-top:1px solid var(--sr-border-subtle);margin-top:var(--sr-space-10)">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sr-space-4)">
+      <span class="sr-body-sm" style="font-size:var(--sr-text-xs)">trail design system</span>
+      <span class="sr-body-sm" style="font-size:var(--sr-text-xs)">MIT</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
