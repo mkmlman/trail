@@ -322,9 +322,11 @@ body {
 }
 
 .sr-tab {
-  font-family: inherit;
-  font-size: inherit;
+  font-family: var(--sr-font-mono);
+  font-size: 0.58rem;
   line-height: inherit;
+  text-transform: uppercase;
+  letter-spacing: var(--sr-tracking-widest);
   padding: var(--sr-space-2) var(--sr-space-4);
   border-radius: var(--sr-radius-full);
   color: var(--sr-text-faint);
