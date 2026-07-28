@@ -347,6 +347,12 @@ body {
   border-color: var(--sr-accent);
 }
 
+.sr-tab:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ─── Reduced motion ─── */
 @media (prefers-reduced-motion: reduce) {
   *,
