@@ -2,9 +2,7 @@
   /* ─── Backgrounds ─── */
   --sr-bg: #18181b;
   --sr-bg-raised: rgba(255, 255, 255, 0.025);
-  --sr-bg-hover: rgba(255, 255, 255, 0.06);
   --sr-bg-card: rgba(255, 255, 255, 0.035);
-  --sr-bg-overlay: rgba(0, 0, 0, 0.5);
 
   /* ─── Text ─── */
   --sr-text: #f5f5f5;
@@ -14,23 +12,16 @@
 
   /* ─── Borders ─── */
   --sr-border-subtle: rgba(255, 255, 255, 0.06);
-  --sr-border-light: rgba(255, 255, 255, 0.08);
   --sr-border: rgba(255, 255, 255, 0.10);
-  --sr-border-strong: rgba(255, 255, 255, 0.15);
-  --sr-border-accent: #7c3aed;
 
   /* ─── Accent ─── */
   --sr-accent: #7c3aed;
-  --sr-accent-hover: #8b5cf6;
   --sr-accent-subtle: rgba(124, 58, 237, 0.12);
 
   /* ─── Semantic ─── */
   --sr-green: #22c55e;
-  --sr-green-bg: rgba(34, 197, 94, 0.10);
   --sr-red: #ef4444;
   --sr-red-bg: rgba(239, 68, 68, 0.10);
-  --sr-amber: #eab308;
-  --sr-amber-bg: rgba(234, 179, 8, 0.10);
 
   /* ─── Typography ─── */
   --sr-font-serif: "Georgia", "Times New Roman", serif;
@@ -71,11 +62,6 @@
   --sr-radius-lg: 18px;
   --sr-radius-xl: 22px;
   --sr-radius-full: 9999px;
-
-  /* ─── Shadows ─── */
-  --sr-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --sr-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --sr-shadow-lg: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
 
   /* ─── Letter-spacing ─── */
   --sr-tracking-tight: -0.035em;

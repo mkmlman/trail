@@ -1,11 +1,5 @@
 # trail Design System
 
-
-```html
-<link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="components.css">
-```
-
 Pages: https://mkmlman.github.io/trail/
 
 ## Contents
