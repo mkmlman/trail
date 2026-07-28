@@ -322,12 +322,16 @@ body {
 }
 
 .sr-tab {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   padding: var(--sr-space-2) var(--sr-space-4);
   border-radius: var(--sr-radius-full);
   color: var(--sr-text-faint);
   cursor: pointer;
   transition: color 0.12s ease, border-color 0.12s ease;
   border: 1px solid transparent;
+  background: none;
 }
 
 .sr-tab:hover {
