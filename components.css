@@ -116,7 +116,7 @@ body {
   font-family: var(--sr-font-mono);
   font-size: 0.58rem;
   color: var(--sr-text-faint);
-  width: 1.25rem;
+  min-width: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -161,7 +161,7 @@ body {
   background: var(--sr-bg-card);
   border: 1px solid var(--sr-border);
   border-radius: var(--sr-radius-lg);
-  overflow: hidden;
+  overflow: clip;
 }
 
 .sr-stat {
@@ -339,6 +339,15 @@ body {
   color: var(--sr-text);
   background: var(--sr-bg-card);
   border-color: var(--sr-border);
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ─── Responsive ─── */

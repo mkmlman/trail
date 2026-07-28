@@ -41,20 +41,27 @@
   --sr-text-6xl: 3.75rem;
 
   /* ─── Spacing (4px base) ─── */
-  --sr-space-1: 0.25rem;
-  --sr-space-2: 0.5rem;
-  --sr-space-3: 0.75rem;
-  --sr-space-4: 1rem;
-  --sr-space-5: 1.25rem;
-  --sr-space-6: 1.5rem;
-  --sr-space-7: 1.75rem;
-  --sr-space-8: 2rem;
-  --sr-space-9: 2.25rem;
-  --sr-space-10: 2.5rem;
-  --sr-space-12: 3rem;
-  --sr-space-14: 3.5rem;
-  --sr-space-16: 4rem;
-  --sr-space-20: 5rem;
+  --sr-space-0: 0;
+  --sr-space-px: 1px;
+  --sr-space-half: 0.125rem; /* 2px */
+  --sr-space-1: 0.25rem;  /* 4px */
+  --sr-space-2: 0.5rem;   /* 8px */
+  --sr-space-3: 0.75rem;  /* 12px */
+  --sr-space-4: 1rem;     /* 16px */
+  --sr-space-5: 1.25rem;  /* 20px */
+  --sr-space-6: 1.5rem;   /* 24px */
+  --sr-space-7: 1.75rem;  /* 28px */
+  --sr-space-8: 2rem;     /* 32px */
+  --sr-space-9: 2.25rem;  /* 36px */
+  --sr-space-10: 2.5rem;  /* 40px */
+  --sr-space-11: 2.75rem; /* 44px */
+  --sr-space-12: 3rem;    /* 48px */
+  --sr-space-13: 3.25rem; /* 52px */
+  --sr-space-14: 3.5rem;  /* 56px */
+  --sr-space-15: 3.75rem; /* 60px */
+  --sr-space-16: 4rem;    /* 64px */
+  --sr-space-18: 4.5rem;  /* 72px */
+  --sr-space-20: 5rem;    /* 80px */
 
   /* ─── Radii ─── */
   --sr-radius-sm: 4px;

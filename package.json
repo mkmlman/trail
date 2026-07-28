@@ -1,0 +1,14 @@
+{
+  "name": "trail",
+  "version": "0.1.0",
+  "description": "A dark, minimal design system with a zinc-based palette, serif-led hierarchy, and monospace data — built for data-dense interfaces.",
+  "license": "MIT",
+  "files": [
+    "tokens.css",
+    "components.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkmlman/trail.git"
+  }
+}
